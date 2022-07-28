@@ -5,8 +5,8 @@ folder = '../../Data/sample_treatment/'
 
 treatment_postfixes = ["VT0.0", "VT1.0"]
 partners = ["Host", "Sym"]
-reps = range(21,26)
-header = "uid treatment rep update donate partner\n"
+reps = range(10,13)
+header = "uid treatment rep update square_frequencies partner\n"
 
 outputFileName = "munged_basic.dat"
 
@@ -16,7 +16,7 @@ outFile.write(header)
 for t in treatment_postfixes:
     for r in reps:
         for p in partners:
-            fname = folder +p+"Vals_" + t +"_SEED" + str(r)+ ".data"
+            fname = folder +"SquareFreq_" + t +"_SEED" + str(r)+ ".data"
             uid = t + "_" + str(r)
             curFile = open(fname, 'r')
             for line in curFile:

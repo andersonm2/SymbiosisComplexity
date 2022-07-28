@@ -9,13 +9,13 @@ import sys
 verts = [0.0, 1.0]
 
 def cmd(command):
-    '''This wait causes all executions to run in sieries.                          
+    '''This wait causes all executions to run in series.                          
     For parralelization, remove .wait() and instead delay the                      
     R script calls unitl all neccesary data is created.'''
     return subprocess.Popen(command, shell=True).wait()
 
 def silent_cmd(command):
-    '''This wait causes all executions to run in sieries.                          
+    '''This wait causes all executions to run in series.                          
     For parralelization, remove .wait() and instead delay the                      
     R script calls unitl all neccesary data is created.'''
     return subprocess.Popen(command, shell=True, stdout=subprocess.PIPE).wait()
@@ -44,7 +44,7 @@ print("Using seeds", start_range, "through", end_range-1)
 
 for a in seeds:
     for b in verts:
-        command_str = './symbulation_default -SEED '+str(a)+ ' -VERTICAL_TRANSMISSION ' +str(b)+ ' -FILE_NAME _VT'+str(b)
+        command_str = './symbulation_sgp -SEED '+str(a)+ ' -VERTICAL_TRANSMISSION ' +str(b)+ ' -FILE_NAME _VT'+str(b)
         settings_filename = "Output_VT"+str(b)+"_SEED"+str(a)+".data"
 
         print(command_str)
